@@ -28,7 +28,7 @@
             <td>{{ item.price }} грн</td>
             <td>{{ item.price * item.quantity }} грн</td>
             <td>
-              <button class="remove-button" @click="removeItem(item.id)">
+              <button class="remove-button" @click="removeItem(item.part_id)">
                 ❌
               </button>
             </td>
@@ -108,7 +108,7 @@ export default {
       const token = localStorage.getItem("token");
       try {
         await axios.put(
-          `https://backend-lx6d.onrender.com/api/orders/cart/${item.id}`,
+          `https://backend-lx6d.onrender.com/api/orders/cart/${item.part_id}`,
           { quantity: item.quantity },
           { headers: { Authorization: token } }
         );
